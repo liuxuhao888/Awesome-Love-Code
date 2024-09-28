@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>一封情书</title>
@@ -9,7 +10,7 @@
     <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
     <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
     <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
-    <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
     <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
     <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
@@ -18,7 +19,6 @@
     <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
-
 </head>
 
 <body>
@@ -99,7 +99,7 @@
                             [590, 293, 646, 277, 648, 271, 2, 80]
                         ]]
                     ]]
-                ],
+                },
                 bloom: {
                     num: 700,
                     width: 1080,
@@ -110,7 +110,7 @@
                     height: 5,
                     speed: 10,
                 }
-            }
+            };
 
             var tree = new Tree(canvas[0], width, height, opts);
             var seed = tree.seed;
@@ -190,23 +190,21 @@
                 }
             }));
 
-           var textAnimate = eval(Jscex.compile("async", function () {
-                // 设置起始时间为自定义时间或当前时间减去一段时间模拟起始时间
-                var startDate = new Date(2024, 1, 1);
-                var now = new Date();
-
-                $("#code").show().typewriter();
-                $("#clock-box").fadeIn(500);
-                while (true) {
+            var textAnimate = eval(Jscex.compile("async", function () {
+                // 设置起始时间为2024年1月1日
+                var startDate = new Date(2024, 0, 1);
+                var updateTimeInterval = setInterval(function () {
+                    var now = new Date();
                     var timeDiff = now - startDate;
                     var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
                     var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
                     $("#clock").text(days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒");
-                    $await(Jscex.Async.sleep(1000));
-                }
+                }, 1000);
+
+                $("#code").show().typewriter();
+                $("#clock-box").fadeIn(500);
             }));
 
             var runAsync = eval(Jscex.compile("async", function () {
@@ -223,8 +221,6 @@
             runAsync().start();
         })();
     </script>
-
-
 
 </body>
 
