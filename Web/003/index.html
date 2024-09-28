@@ -190,18 +190,21 @@
                 }
             }));
 
-            var textAnimate = eval(Jscex.compile("async", function () {
-                var together = new Date();
-                together.setFullYear(2023, 12, 24);
-                together.setHours(0);
-                together.setMinutes(0);
-                together.setSeconds(0);
-                together.setMilliseconds(0);
+           var textAnimate = eval(Jscex.compile("async", function () {
+                // 设置起始时间为自定义时间或当前时间减去一段时间模拟起始时间
+                var startDate = new Date(2024, 1, 1);
+                var now = new Date();
 
                 $("#code").show().typewriter();
                 $("#clock-box").fadeIn(500);
                 while (true) {
-                    timeElapse(together);
+                    var timeDiff = now - startDate;
+                    var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                    $("#clock").text(days + " 天 " + hours + " 小时 " + minutes + " 分钟 " + seconds + " 秒");
                     $await(Jscex.Async.sleep(1000));
                 }
             }));
