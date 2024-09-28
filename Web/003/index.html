@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>一封情书</title>
     <link rel="icon" type="image/x-icon" href="https://i.loli.net/2021/06/03/lFg2V4WUcmkB98G.png">
     <meta name="language" content="zh-CN">
-    <meta name="title" content="小孙同学">
+    <meta name="title" content="刘栩皓的表白墙">
     <meta name="github" content="https://github.com/sun0225SUN/Awesome-Love-Code">
-    <meta name="describe" content="收集不易，您的star是我坚持的动力，同时也欢迎各位PR哦! ">
+    <meta name="describe" content="收集不易，您的 star 是我坚持的动力，同时也欢迎各位 PR 哦! ">
     <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
-    <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
     <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
     <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
@@ -18,7 +19,6 @@
     <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
     <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
     <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
-
 </head>
 
 <body>
@@ -51,7 +51,7 @@
             </div>
             <div id="clock-box">
                 <a href="https://sunguoqi.com" target="_blank">李智慧</a> 和 <a href="https://sunguoqi.com"
-                    target="_blank">刘栩皓</a> 在一起的
+                    target="_blank">刘栩皓</a> 在一起的时间：
                 <div id="clock"></div>
             </div>
             <canvas id="canvas" width="1100" height="680"></canvas>
@@ -99,7 +99,7 @@
                             [590, 293, 646, 277, 648, 271, 2, 80]
                         ]]
                     ]]
-                ],
+                },
                 bloom: {
                     num: 700,
                     width: 1080,
@@ -110,7 +110,7 @@
                     height: 5,
                     speed: 10,
                 }
-            }
+            };
 
             var tree = new Tree(canvas[0], width, height, opts);
             var seed = tree.seed;
@@ -191,8 +191,8 @@
             }));
 
             var textAnimate = eval(Jscex.compile("async", function () {
-                // 设置起始时间为2024年1月1日
-                var startDate = new Date(2024, 1, 1);
+                // 设置起始时间为 2024 年 1 月 1 日
+                var startDate = new Date(2024, 0, 1);
                 var updateTimeInterval = setInterval(function () {
                     var now = new Date();
                     var timeDiff = now - startDate;
@@ -221,8 +221,6 @@
             runAsync().start();
         })();
     </script>
-
-
 
 </body>
 
